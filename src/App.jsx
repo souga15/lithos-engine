@@ -180,9 +180,11 @@ function App() {
               </Routes>
             </main>
             
+{/* 
             <ErrorBoundary name="PrivacyConsent">
               <PrivacyConsent />
             </ErrorBoundary>
+            */}
             
             <ErrorBoundary name="InstallPrompt">
               <InstallPrompt />
