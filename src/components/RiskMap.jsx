@@ -31,7 +31,7 @@ const RiskMap = ({ region, riskData, reports, onCellClick, activeRunout, globalR
         // Placeholder for SAR WMS or different tile
         return 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; 
       default:
-        return 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+        return 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_CARTO_API_KEY}';
     }
   };
 
