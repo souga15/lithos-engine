@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import axios from 'axios';
 import API_BASE_URL from '../apiConfig';
+import { getDarkTileUrl } from '../mapUtils';
 import { AlertTriangle, ShieldAlert, Mountain, Sparkles, CloudRain, ShieldOff, Users, MapPin, CheckCircle } from 'lucide-react';
 import RiskBadge from '../components/RiskBadge';
 
@@ -166,7 +167,7 @@ const Reports = () => {
             <h3 className="text-[10px] font-black tracking-widest text-white/30 uppercase mb-4 pl-2">ACTIVE REPORTS MAP</h3>
             <div className="h-full rounded-2xl overflow-hidden grayscale contrast-125 hover:grayscale-0 transition-all duration-700">
               <MapContainer center={[25.27, 91.73]} zoom={8} className="h-full w-full" zoomControl={false}>
-                <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_CARTO_API_KEY}" />
+                <TileLayer url={getDarkTileUrl()} />
                 <MapPicker />
                 {reports.map(r => (
                   <Marker key={r.report_id} position={[r.lat, r.lon]} icon={L.divIcon({ className: `w-3 h-3 rounded-full ${r.verified ? 'bg-risk-red animate-pulse' : 'bg-risk-yellow'} border border-white shadow-xl` })}>

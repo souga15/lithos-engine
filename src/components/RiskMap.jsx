@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON, Rectangle, Marker, Popup, useMap, useMapEvents, Circle, Polygon } from 'react-leaflet';
 import L from 'leaflet';
 import RiskBadge from './RiskBadge';
+import { getDarkTileUrl } from '../mapUtils';
 
 const MapEvents = ({ onMapClick }) => {
   useMapEvents({
@@ -31,7 +32,7 @@ const RiskMap = ({ region, riskData, reports, onCellClick, activeRunout, globalR
         // Placeholder for SAR WMS or different tile
         return 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'; 
       default:
-        return 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_CARTO_API_KEY}';
+        return getDarkTileUrl();
     }
   };
 

@@ -9,6 +9,7 @@ import RiskBadge from '../components/RiskBadge';
 import SOSButton from '../components/SOSButton';
 import BlockageReport from '../components/BlockageReport';
 import RainfallClock from '../components/RainfallClock';
+import { getDarkTileUrl } from '../mapUtils';
 
 // CesiumTerrain3D loaded lazily so 2D map still works if cesium pkg not yet installed
 const CesiumTerrain3DLazy = React.lazy(() =>
@@ -739,7 +740,7 @@ const SafeRoute = () => {
           >
             <TileLayer
               url={mapStyle === 'dark'
-                ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_CARTO_API_KEY}"
+                ? getDarkTileUrl()
                 : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               }
             />
