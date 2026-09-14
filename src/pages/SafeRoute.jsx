@@ -739,7 +739,7 @@ const SafeRoute = () => {
           >
             <TileLayer
               url={mapStyle === 'dark'
-                ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?api_key=${import.meta.env.VITE_CARTO_API_KEY}"
                 : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               }
             />
